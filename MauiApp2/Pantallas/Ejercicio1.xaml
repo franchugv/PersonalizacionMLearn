@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.MainPage"
+             x:Name="stack"
+            
+             >
+
+
+
+    <Grid Padding="20" RowSpacing="10" RowDefinitions="50,50,*"
+          
+          HorizontalOptions="Center" 
+          >
+
+        <HorizontalStackLayout Grid.Row="0" Spacing="10">
+            <Label Text="Horizontal" VerticalOptions="Center" />
+            <Button Text="Start"  Clicked="OnHorizontalClicked"  />
+            <Button Text="Center" Clicked="OnHorizontalClicked" />
+            <Button Text="End"    Clicked="OnHorizontalClicked"    />
+            <Button Text="Fill"   Clicked="OnHorizontalClicked"   />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout  Grid.Row="1" Spacing="10">
+            <Label Text="Vertical" VerticalOptions="Center" />
+            <Button Text="Start"  Clicked="OnVerticalClicked"  />
+            <Button Text="Center" Clicked="OnVerticalClicked" />
+            <Button Text="End"    Clicked="OnVerticalClicked"    />
+            <Button Text="Fill"   Clicked="OnVerticalClicked"   />
+        </HorizontalStackLayout>
+
+        <Label Grid.Row="2" FontSize="25" x:Name="target" BackgroundColor="Silver" Text="Hello" />
+
+    </Grid>
+
+
+
+</ContentPage>
