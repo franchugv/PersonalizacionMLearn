@@ -8,7 +8,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:Ejercicio2}"
-        Route="Ejercicio2" />
+        ContentTemplate="{DataTemplate local:Ejercicio2_vGrid}"
+        Route="Ejercicio2_vGrid" />
 
 </Shell>
