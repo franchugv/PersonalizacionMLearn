@@ -6,9 +6,10 @@ public partial class Ejercicio2 : ContentPage
 	{
 		InitializeComponent();
 
-        billInput.TextChanged += (s, e) => CalculateTip(false, false);
-        roundDown.Clicked += (s, e) => CalculateTip(false, true);
-        roundUp.Clicked += (s, e) => CalculateTip(true, false);
+        // Eventos
+        // billInput.TextChanged += (s, e) => CalculateTip(false, false);
+        // roundDown.Clicked += (s, e) => CalculateTip(false, true);
+        // roundUp.Clicked += (s, e) => CalculateTip(true, false);
 
         tipPercentSlider.ValueChanged += (s, e) =>
         {
@@ -29,9 +30,21 @@ public partial class Ejercicio2 : ContentPage
 
         try
         {
+           
             switch (botones.Text)
             {
-
+                case "15%":
+                    tipPercentSlider.Value = 15;
+                    break;
+                case "20%":
+                    tipPercentSlider.Value = 20;
+                    break;
+                case "Round Down":
+                    CalculateTip(false, true);
+                    break;
+                case "Round Up":
+                    CalculateTip(true, false);
+                    break;
             }
         }
         catch (Exception error)
@@ -45,12 +58,60 @@ public partial class Ejercicio2 : ContentPage
         }
     }
 
-
-
-    private void MostrarError(string mensajeError)
+    private void TextChanged(object sender, TextChangedEventArgs e)
     {
-        DisplayAlert("Error", $"Error: {mensajeError}", "Ok");
+        // Recursos
+        bool esValido = true;
+        string mensajeError = "";
+        Entry entry = (Entry)sender;
+
+        try
+        {
+            switch (entry.Text)
+            {
+                case "Bill":
+                    CalculateTip(false, false);
+                    break;
+            }
+        }
+        catch (Exception error)
+        {
+            esValido = false;
+            mensajeError = error.Message;
+        }
+        finally
+        {
+            if (!esValido) MostrarError(mensajeError);
+        }
     }
+
+    private void ValueChangedSlider(object sender, ValueChangedEventArgs e)
+    {
+        // Recursos
+        bool esValido = true;
+        string mensajeError = "";
+        Slider slider = (Slider)sender;
+
+        try
+        {
+            //switch (slider.Id)
+            //{
+            //    case tipPercentSlider.Id:
+            //        CalculateTip(false, false);
+            //        break;
+            //}
+        }
+        catch (Exception error)
+        {
+            esValido = false;
+            mensajeError = error.Message;
+        }
+        finally
+        {
+            if (!esValido) MostrarError(mensajeError);
+        }
+    }
+
 
     void CalculateTip(bool roundUp, bool roundDown)
     {
@@ -75,7 +136,16 @@ public partial class Ejercicio2 : ContentPage
 
             tipOutput.Text = tip.ToString("C");
             totalOutput.Text = final.ToString("C");
+
+
         }
     }
+
+
+    private void MostrarError(string mensajeError)
+    {
+        DisplayAlert("Error", $"Error: {mensajeError}", "Ok");
+    }
+
 
 }
