@@ -62,7 +62,7 @@
 	  <MauiXaml Update="Pantallas\Ejercicio2.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Ejercicio2_vGrid.xaml">
+	  <MauiXaml Update="Pantallas\Ejercicio2_vGrid.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -1,22 +1,24 @@
 namespace MauiApp2;
 
-public partial class Ejercicio2 : ContentPage
+public partial class Ejercicio2_vGrid : ContentPage
 {
-	public Ejercicio2()
-	{
-		InitializeComponent();
+    public Ejercicio2_vGrid()
+    {
+
+        InitializeComponent();
 
         // Eventos
         // billInput.TextChanged += (s, e) => CalculateTip(false, false);
         // roundDown.Clicked += (s, e) => CalculateTip(false, true);
         // roundUp.Clicked += (s, e) => CalculateTip(true, false);
 
-        // tipPercentSlider.ValueChanged += (s, e) =>
-        //{
-        //    double pct = Math.Round(e.NewValue);
-        //    tipPercent.Text = pct + "%";
-        //    CalculateTip(false, false);
-        //};
+        tipPercentSlider.ValueChanged += (s, e) =>
+        {
+            double pct = Math.Round(e.NewValue);
+            tipPercent.Text = pct + "%";
+            CalculateTip(false, false);
+        };
+
 
 
     }
@@ -30,7 +32,7 @@ public partial class Ejercicio2 : ContentPage
 
         try
         {
-           
+
             switch (botones.Text)
             {
                 case "15%":
@@ -94,11 +96,12 @@ public partial class Ejercicio2 : ContentPage
 
         try
         {
-            double pct = Math.Round(e.NewValue);
-            tipPercent.Text = pct + "%";
-            CalculateTip(false, false);
-                    
-            
+            //switch (slider.Id)
+            //{
+            //    case tipPercentSlider.Id:
+            //        CalculateTip(false, false);
+            //        break;
+            //}
         }
         catch (Exception error)
         {
@@ -115,7 +118,7 @@ public partial class Ejercicio2 : ContentPage
     void CalculateTip(bool roundUp, bool roundDown)
     {
         double t;
-        if (Double.TryParse(billInput.Text, out t) && t > 0)
+        if (double.TryParse(billInput.Text, out t) && t > 0)
         {
             double pct = Math.Round(tipPercentSlider.Value);
             double tip = Math.Round(t * (pct / 100.0), 2);
@@ -145,6 +148,4 @@ public partial class Ejercicio2 : ContentPage
     {
         DisplayAlert("Error", $"Error: {mensajeError}", "Ok");
     }
-
-
 }

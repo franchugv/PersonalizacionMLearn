@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp2.Pantallas.Ejercicio2_vGrid"
+             x:Class="MauiApp2.Ejercicio2_vGrid"
              Title="Ejercicio2_vGrid">
     <Grid
     RowDefinitions="Auto, Auto, Auto, *, Auto, Auto, Auto"
     ColumnDefinitions="*, *"
     Padding="40">
 
-        <Label Text="Bill" Grid.Row="0" Grid.Column="0"/>
+        <Label Text="Bill" VerticalOptions="Center"  Grid.Row="0" Grid.Column="0"/>
         <Entry x:Name="billInput" TextChanged="TextChanged" Placeholder="Enter Amount" Keyboard="Numeric"  Grid.Row="0" Grid.Column="1"/>
 
-        <Label Text="Tip"   WidthRequest="100" Grid.Row="1" Grid.Column="0"/>
+        <Label Text="Tip" Grid.Row="1" Grid.Column="0"/>
         <Label x:Name="tipOutput" Text="0.00"  Grid.Row="1" Grid.Column="1"/>
 
 
 
-        <Label Text="Total"  WidthRequest="100"/>
-        <Label x:Name="totalOutput" Text="0.00" />
+        <Label Text="Total"  WidthRequest="100" Grid.Row="2"  Grid.Column="1" />
+        <Label x:Name="totalOutput" Text="0.00"  Grid.Row="2" Grid.Column="1"/>
 
 
         <Label Text="Tip Percentage" WidthRequest="100" VerticalOptions="End" HorizontalOptions="Start" Grid.Row="3" Grid.Column="0"/>
@@ -29,8 +29,8 @@
         <Button Text="20%" Clicked="ClickedButton" Margin="5" Grid.Row="5" Grid.Column="1"/>
 
 
-        <Button x:Name="roundDown" Clicked="ClickedButton" Text="Round Down" Grid.Row="6" Grid.Column="0"/>
-        <Button x:Name="roundUp"   Clicked="ClickedButton" Text="Round Up" Grid.Row="6" Grid.Column="1"/>
+        <Button x:Name="roundDown" Margin="5" Clicked="ClickedButton" Text="Round Down" Grid.Row="6" Grid.Column="0"/>
+        <Button x:Name="roundUp" Margin="5" Clicked="ClickedButton" Text="Round Up" Grid.Row="6" Grid.Column="1"/>
 
     </Grid>
 </ContentPage>
